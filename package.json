@@ -1,0 +1,26 @@
+{
+  "name": "phpniigata-2026-demo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "npm run build:js && npm run build:css && npm run build:elements && npm run build:validator",
+    "build:js": "esbuild frontend/app.ts --bundle --format=esm --minify --sourcemap --outfile=public/js/app.js",
+    "build:css": "tailwindcss -i frontend/app.css -o public/css/app.css --minify",
+    "build:elements": "esbuild elements/*.ts --outdir=build/elements --format=esm --target=es2020",
+    "build:validator": "esbuild plugins/validator/index.ts --bundle --format=cjs --target=es2020 --outfile=build/validator.js && extism-js build/validator.js -i plugins/validator/index.d.ts -o wasm/validator.wasm",
+    "typecheck": "tsc -p tsconfig.json && tsc -p plugins/validator/tsconfig.json"
+  },
+  "dependencies": {
+    "@enhance/element": "1.4.6",
+    "@enhance/store": "1.0.2",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@enhance/types": "0.7.0",
+    "@extism/js-pdk": "1.1.1",
+    "@tailwindcss/cli": "4.3.3",
+    "esbuild": "0.28.2",
+    "tailwindcss": "4.3.3",
+    "typescript": "7.0.2"
+  }
+}

@@ -1,0 +1,9 @@
+.git
+.envrc
+vendor
+node_modules
+build
+public/js
+public/css
+wasm/*.wasm
+var/*

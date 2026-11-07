@@ -1,0 +1,12 @@
+/vendor/
+/node_modules/
+/build/
+/public/js/
+/public/css/
+/wasm/*.wasm
+/var/*
+!/var/.gitkeep
+.DS_Store
+
+# 登壇の構成案（手元用）
+/docs/talk-outline.md
